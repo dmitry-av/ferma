@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Ваш профиль{% endblock %}
+{% block content %}
+<h2>Редактирование профиля</h2>
+<form method="post" class="form-horizontal" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+<br>
+<a href="{% url 'password_change' %}">Изменить пароль</a>
+{% endblock %}

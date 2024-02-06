@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h2>Не залогинены</h2>
+        <p class="mb-3">Вы не залогинены</p>
+        <p><a href="{% url 'login' %}">Логин</a></p>
+    </div>
+</div>
+{% endblock %}

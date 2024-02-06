@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "head_bootstrap.html" %}
+  <title>
+    {% block title %}
+    {% if title %}
+    {{ title }}
+    {% else %}
+    Ferma
+    {% endif %}
+    {%endblock %}
+  </title>
+  <style>
+    body {
+      background: #d9e0fa;
+    }
+
+    .navbar.bg-dark {
+      background-color: #380170 !important;
+    }
+
+    .ferma {
+      color: #d4d7ff;
+    }
+
+    .bferma {
+      color: #380170;
+    }
+  </style>
+</head>
+
+<body>
+  {% include "navbar.html" %}
+  <div class="container-fluid pt-3">{% block content %} {% endblock %}</div>
+  {% include "scripts_bootstrap.html" %} {% block scripts %} {% endblock %}
+</body>
+
+</html>

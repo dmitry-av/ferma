@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Войти в приложение{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col col-md-6">
+        {% if next %}
+        {% if user.is_authenticated %}
+        <p>У вас нет доступа к этой странице. Пожалуйста, войдите в учетную запись</p>
+        {% else %}
+        <p>Вы должны войти, чтобы увидеть эту страницу</p>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col col-md-6">
+        <form method="post" action="{% url "login" %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </div>
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+        <p><a href="{% url 'password_reset' %}">Сбросить пароль</a></p>
+    </div>
+</div>
+{% endblock %}
